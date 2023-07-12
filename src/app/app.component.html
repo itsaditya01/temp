@@ -1,0 +1,24 @@
+<div>
+  <div>
+    <h2> Team App</h2>
+    <div>
+      <ul>
+        <li *ngFor="let member of members">{{member}}</li>
+      </ul>
+      <div>
+        <input #name type="text" name="" id="" (input)="onInput(name.value)" [value]="nameOfMember"/>
+        <button (click)="addMember()">Add</button>
+      </div>
+      <div>
+        <input #teams type="number" name="" (change)="onInputTeams(teams.value)" [value]="noOfTeams">
+        <button (click)="generateTeams()">Generate teams</button>
+      </div>
+      <div>
+        <p style="color: red;" *ngIf="errorMessage">{{errorMessage}}</p>
+      </div>
+    </div>
+    <div *ngIf="teamsCreated.length">
+      <app-team *ngFor="let team of teamsCreated; let i = index" [team]="team" [index]="i"></app-team>
+    </div>
+  </div>
+</div>
